@@ -1,0 +1,51 @@
+Error: varibable v in Triangle.f is not declared.
+Error: varibable w in Triangle.f is not declared.
+
+Class names and their field variables, function names, parameters are displayed below.
+
+{Circle=
+superclass=Ellipse
+fields=[]
+functions={}
+
+, Ellipse=
+superclass=ClosedShape
+fields=[center, majorAxis, minorAxis]
+functions={}
+
+, Shape=
+superclass=
+fields=[]
+functions={move=[x, y]}
+
+, ClosedShape=
+superclass=Shape
+fields=[]
+functions={area=[], circumference=[]}
+
+, Triangle=
+superclass=Polygon
+fields=[p1, p2, p3]
+functions={f=[x, y]}
+
+, Rectangle=
+superclass=Polygon
+fields=[p1, p2]
+functions={}
+
+, OpenShape=
+superclass=Shape
+fields=[]
+functions={}
+
+, Polygon=
+superclass=ClosedShape
+fields=[]
+functions={}
+
+, Square=
+superclass=Rectangle
+fields=[]
+functions={}
+
+}

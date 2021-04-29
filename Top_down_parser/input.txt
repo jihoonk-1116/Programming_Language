@@ -1,0 +1,50 @@
+
+
+class Shape
+{
+	((move x y) (f))
+}
+
+class OpenShape : Shape
+{
+}
+
+
+class ClosedShape : Shape
+{
+	((circumference) (f))
+	((area) (g))
+}
+
+class Polygon : ClosedShape
+{
+}
+
+class Triangle : Polygon
+{
+	p1
+	p2
+	p3
+	((f x y) (g p1 p2 v p3 x y w))
+}
+
+class Rectangle : Polygon
+{
+	p1
+	p2
+}
+
+class Square : Rectangle
+{
+}
+
+class Ellipse : ClosedShape
+{
+	center
+	majorAxis
+	minorAxis
+}
+
+class Circle : Ellipse
+{
+}
