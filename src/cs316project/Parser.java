@@ -328,14 +328,7 @@ public abstract class Parser extends LexArithArray
 	    
 	    if(state == State.Id || state == State.Int || state == State.Float || state == State.FloatE || 
 	    state == State.Keyword_null || state == State.Keyword_this || state == State.LParen ){
-//	    	if(state == State.Id) {
-//	    		System.out.println(func_name + "  " + t);
-//	    		System.out.println(defEntry.fields.toString());
-//	    		System.out.println(defEntry.funMap.get(func_name).toString());
-//	    		if(defEntry.fields.contains(t) == false && defEntry.funMap.get(func_name).contains(t) == false) {
-//	    			displayln("Error: varibable " + t +" in " + class_name + "." + func_name +" is not declared.");
-//	    		}
-//	    	}
+
 	        Exp exp = exp();
 	        
 	        return new MultiExpList(exp, expList());
@@ -373,22 +366,25 @@ public abstract class Parser extends LexArithArray
 	public static ArithExp arithExp(){
 	    //⟨arith exp⟩ → ⟨arith op⟩ ⟨exp⟩ ⟨exp⟩
 	    if(state == State.Add || state == State.Sub ||state == State.Mul ||state == State.Div){
+	    	String op = state.toString();
 	        getToken();
 	        Exp exp = exp();
 	        Exp exp2 = exp();
-	        return new ArithExp(exp, exp2);
+	        return new ArithExp(op, exp, exp2);
 	    }
 	    else 
 	        errorMsg(14);
 	    return null;
 	}
+	
 	public static BoolExp boolExp(){
 	   // ⟨bool exp⟩ → ⟨bool op⟩ ⟨exp⟩ ⟨exp⟩
 	    if(state == State.Or || state == State.And ){
+	    	String bool = state.toString();
 	        getToken();
 	        Exp exp = exp();
 	        Exp exp2 = exp();
-	        return new BoolExp(exp, exp2);
+	        return new BoolExp(bool, exp, exp2);
 	    }
 	    else 
 	        errorMsg(15);
@@ -397,10 +393,11 @@ public abstract class Parser extends LexArithArray
 	public static CompExp compExp(){
 	   // ⟨comp exp⟩ → ⟨comp op⟩ ⟨exp⟩ ⟨exp⟩
 	    if(state==State.Lt || state==State.Le ||state==State.Gt || state==State.Ge || state==State.Eq){
+	    	String comp = state.toString();
 	        getToken();
 	        Exp exp = exp();
 	        Exp exp2 = exp();
-	        return new CompExp(exp, exp2);
+	        return new CompExp(comp, exp, exp2);
 	    }
 	    else errorMsg(16);
 	    return null;
